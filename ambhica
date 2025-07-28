@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .main-box {
+      background: #111;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.6);
+      padding: 40px 32px;
+      max-width: 800px;
+      width: 95%;
+      margin: 40px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      background: none;
+      position: static;
+    }
+    .logo {
+      font-weight: 600;
+      font-size: 1.5em;
+      letter-spacing: 1px;
+    }
+    nav a {
+      margin-left: 18px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1em;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #f39c12;
+    }
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .profile-pic {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+    }
+    .intro {
+      max-width: 480px;
+    }
+    .intro h1 {
+      font-size: 2.1em;
+      margin-bottom: 8px;
+    }
+    .intro p {
+      font-size: 1.1em;
+      margin-bottom: 16px;
+    }
+    .buttons .btn {
+      display: inline-block;
+      margin: 6px;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+    .resume { background-color: #a3d500; color: #000; }
+    .research { background-color: #ffaa00; color: #000; }
+    .outreach { background-color: #63e6e2; color: #000; }
+    .personal { background-color: #ccc; color: #000; }
+    .buttons .btn:hover {
+      transform: scale(1.05);
+      opacity: 0.92;
+    }
+    .skills-container {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      align-items: stretch;
+      width: 100%;
+      max-width: 560px;
+      margin: 22px auto 0 auto;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+    .skills-box {
+      background: #222;
+      border-radius: 12px;
+      padding: 22px 18px;
+      flex: 1 1 0px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+      color: #fff;
+      min-width: 180px;
+      font-size: 1em;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .skills-box h2 {
+      margin-top: 0;
+      margin-bottom: 13px;
+      font-weight: 600;
+      border-bottom: 2px solid #f39c12;
+      padding-bottom: 5px;
+    }
+    .skills-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .skills-list li {
+      margin-bottom: 7px;
+    }
+    section {
+      width: 100%;
+      margin: 28px 0 10px 0;
+      padding: 0;
+    }
+    section h1 {
+      font-size: 1.5em;
+      margin-bottom: 6px;
+    }
+    section p {
+      font-size: 1.09em;
+      margin-bottom: 8px;
+    }
+    /* Education table styles */
+    .education-block {
+  background: #181818;
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+.education-block h2 {
+  margin: 0 0 6px 0;
+  color: #fff;
+  font-size: 1.18em;
+}
+.education-block p {
+  margin: 0;
+  font-size: 1.05em;
+  color: #eaeaea;
+}
+    footer {
+      width: 100%;
+      padding: 18px 0;
+      background-color: #111;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      font-size: 0.96em;
+      border-top: 1px solid #232323;
+      margin-top: 24px;
+    }
+    footer a {
+      color: #63e6e2;
+      text-decoration: none;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .hero, .intro, .main-box, .skills-container, section {
+      animation: fadeInUp 1s ease;
+    }
+    @media (max-width: 830px) {
+      .main-box {
+        padding: 20px 4vw;
+        max-width: 99vw;
+      }
+      .skills-container {
+        max-width: 99vw;
+      }
+    }
+    @media (max-width: 650px) {
+      .main-box {
+        padding: 10px 0.8vw;
+      }
+      .hero {
+        flex-direction: column;
+        gap: 18px;
+      }
+      .profile-pic {
+        width: 145px;
+        height: 145px;
+      }
+    }
+    @media (max-width: 500px) {
+      .skills-container {
+        flex-direction: column;
+        gap: 13px;
+        overflow-x: visible;
+      }
+      .skills-box {
+        min-width: 0;
+        width: 100%;
+      }
+      .education-table th, .education-table td {
+        padding: 9px 6px;
+        font-size: 0.98em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-box">
+    <header>
+      <div class="logo">Your Name</div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About me</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section id="home" class="hero">
+      <img src="ambhica.jpg" alt="Photo of Your Name" class="profile-pic">
+      <div class="intro">
+        <h1>Your Name</h1>
+        <p>I am a [Your Field] student with interest in [Your Skills or Topics].</p>
+        <div class="buttons">
+          <a href="#resume" class="btn resume">Resume</a>
+          <a href="#research" class="btn research">Research</a>
+          <a href="#outreach" class="btn outreach">Outreach</a>
+          <a href="#personal" class="btn personal">Personal</a>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <section id="about">
+      <h1>About Me</h1>
+      <p>This section contains detailed information about your background, goals, education, and interests.</p>
+    </section>
+
+    <!-- EDUCATION SECTION START -->
+    <section id="education">
+        <h1>Education</h1>
+        <div class="education-block">
+          <h2>Schooling</h2>
+          <p>
+            Institution: Your School Name<br>
+            <strong>CGPA:</strong> 9.7
+          </p>
+        </div>
+        <div class="education-block">
+          <h2>Intermediate</h2>
+          <p>
+            <strong>Institution:</strong> Your College Name<br>
+            <strong>CGPA:</strong> 9.2
+          </p>
+        </div>
+        <div class="education-block">
+          <h2>B.Tech</h2>
+          <p>
+            <strong>Institution:</strong> Your University / College Name<br>
+            <strong>CGPA:</strong> 8.8
+          </p>
+        </div>
+      </section>
+      
+    <!-- EDUCATION SECTION END -->
+
+    <section id="certifications">
+      <h1>Certifications</h1>
+      <p>List your certifications here with issuing organizations and dates.</p>
+    </section>
+
+    <section id="projects">
+      <h1>Projects</h1>
+      <p>Describe your academic or personal projects, tools used, and outcomes.</p>
+    </section>
+    <!-- Side-by-side Skills Section -->
+    <div class="skills-container">
+        <div class="skills-box">
+          <h2>Technical Skills</h2>
+          <ul class="skills-list">
+            <li>HTML/CSS</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>Python</li>
+            <!-- Add more technical skills as needed -->
+          </ul>
+        </div>
+        <div class="skills-box">
+          <h2>Soft Skills</h2>
+          <ul class="skills-list">
+            <li>Communication</li>
+            <li>Teamwork</li>
+            <li>Problem Solving</li>
+            <li>Adaptability</li>
+            <!-- Add more soft skills as needed -->
+          </ul>
+        </div>
+      </div>
+
+    <section id="contact">
+      <h1>Contact</h1>
+      <p>Email: yourmail@example.com</p>
+      <p>GitHub: <a href="https://github.com/yourprofile" target="_blank">yourprofile</a></p>
+    </section>
+
+    <footer>
+      <div>Email: yourmail@example.com</div>
+      <div>GitHub: <a href="https://github.com/yourprofile">yourprofile</a></div>
+      <div>&copy; 2025 | Built by You</div>
+    </footer>
+  </div>
+</body>
+</html>
